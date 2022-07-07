@@ -18,7 +18,7 @@ program.version(require('./package.json').version);
 
 program
   .allowUnknownOption()
-  .name("edu browse")
+  .name("gh edu browse")
   .description('Open tabs in your browser current window for all the matching repos inside the org')
   .option('-C, --commit', 'open the commit activity pages')
   .option('-S, --search <query>', "search <query> using GitHub Search API. A dot '.' refers to all the repos")
