@@ -49,7 +49,7 @@ gh browse -R ULL-MFP-AET-2122/github-profile-readme-nestor-gonzalez-lopez-alu010
 I use a couple of alias `cd` and `pwd` to set and get the current organization:
 
 ```
-➜  gh-org-browse-repo git:(main) ✗ gh alias list | grep cd
+➜  owse-repo git:(main) ✗ gh alias list | grep cd
 cd:	!gh config set current-org "$1" 2>/dev/null
 ➜  gh-org-browse-repo git:(main) ✗ gh alias list | grep pwd
 pwd:	!gh config get current-org
