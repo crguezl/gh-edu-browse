@@ -10,7 +10,7 @@ const shell = require('shelljs');
 const { Command } = require('commander');
 const prompt = require('prompt-sync')();
 
-const { getDefaultOrg } = require("@crguezl/gh-utilities");
+const { getEduDefaultOrg } = require("@crguezl/gh-utilities");
 
 const program = new Command();
 
@@ -165,7 +165,7 @@ function getRepoListFromAPISearch(search, org) {
 
 debugger;
 
-let org = options.org || getDefaultOrg() ||  process.env["GITHUB_ORG"];
+let org = options.org || getEduDefaultOrg() ||  process.env["GITHUB_ORG"];
 
 if (!org) {
   let r = shell.exec(`gh browse -n`, {silent: true});

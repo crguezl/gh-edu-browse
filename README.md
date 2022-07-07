@@ -1,28 +1,35 @@
 ## Installation
 
 ```
-gh extension install crguezl/gh-org-browse-repo
+gh edu install crguezl/gh-edu-browse
+Installing crguezl/gh-edu-browse ...
+Plugin installed in system
+Setting up configuration...
+crguezl/gh-edu-browse installed as browse
 ```
 
 ## Usage
 
 ```
+gh edu browse -h
 Usage: gh org-browse-repo [options]
 
 Open tabs in your browser for all the matching repos inside the org
 
 Options:
-  -V, --version          output the version number
-  -C, --commit           open the commits page
-  -S, --search <query>   search <query> using GitHub Search API. A dot '.' refers to all the repos
-  -d, --dryrun           shows the repos that will be open
-  -P, --pause <number>   pause <number> of open tabs (default: 20)
-  -r, --regexp <regexp>  filter <query> results using <regexp>
-  -o --org <org>         set default organization or user
-  -h, --help             display help for command
+  -V, --version             output the version number
+  -C, --commit              open the commit activity pages
+  -S, --search <query>      search <query> using GitHub Search API. A dot '.'
+                            refers to all the repos
+  -d, --dryrun              shows the repos that will be open
+  -P, --pause <number>      pause <number> of open tabs (default: 20)
+  -r, --regexp <regexp>     filter <query> results using <regexp>
+  -v, --dontmatch <regexp>  filter <query> results not matching <regexp>
+  -o --org <org>            set default organization or user
+  -h, --help                display help for command
 
   - You can set the default organization through the GITHUB_ORG environment variable
-  - If the org is not specified and you issue the command inside a repo the org of that repo will be used
+  - If the org is not specified and you issue the command inside a repo the org of that repo will be used 
   - Additional options will be passed to "gh browse":
       -b, --branch string            Select another branch by passing in the branch name
       -c, --commit                   Open the last commit
@@ -38,7 +45,7 @@ Search for repos with name that matches `github-readme` and filter those that ma
 `ULL-MFP-AET-2122`. Show how `gh` cli will be called:
 
 ```
-✗ gh org-browse-repo -o ULL-MFP-AET-2122 -S github-readme -r gonzalez -d  -s
+✗ gh edu browse -o ULL-MFP-AET-2122 -S github-readme -r gonzalez -d  -s
 gh browse -R ULL-MFP-AET-2122/github-profile-readme-adela-gonzalez-maury-alu0101116204 -s
 gh browse -R ULL-MFP-AET-2122/github-profile-readme-ivan-gonzalez-aguiar-alu0100551266 -s
 gh browse -R ULL-MFP-AET-2122/github-profile-readme-nestor-gonzalez-lopez-alu0100108859 -s
@@ -46,23 +53,22 @@ gh browse -R ULL-MFP-AET-2122/github-profile-readme-nestor-gonzalez-lopez-alu010
 
 ## Default org
 
-I use a couple of alias `cd` and `pwd` to set and get the current organization:
+If the default organization is set with `gh edu set ...`there is no need to specify the organization:
 
 ```
-➜  owse-repo git:(main) ✗ gh alias list | grep cd
-cd:	!gh config set current-org "$1" 2>/dev/null
-➜  gh-org-browse-repo git:(main) ✗ gh alias list | grep pwd
-pwd:	!gh config get current-org
-➜  gh-org-browse-repo git:(main) ✗ gh cd ULL-MFP-AET-2122
-➜  gh-org-browse-repo git:(main) ✗ gh pwd
+➜  gh-edu-browse git:(main) ✗ gh edu set -o 'ULL-MFP-AET-2122'
+Not in cache. Fetching... (Cache will be updated)
+➜  gh-edu-browse git:(main) ✗ gh edu get -o                   
 ULL-MFP-AET-2122
 ```
+
 
 Now you can omit the org argument:
 
 ```
-➜  gh-org-browse-repo git:(main) ✗ gh org-browse-repo -S github-readme -r gonzalez -d  -s
-gh browse -R ULL-MFP-AET-2122/github-profile-readme-ivan-gonzalez-aguiar-alu0100551266 -s
-gh browse -R ULL-MFP-AET-2122/github-profile-readme-adela-gonzalez-maury-alu0101116204 -s
-gh browse -R ULL-MFP-AET-2122/github-profile-readme-nestor-gonzalez-lopez-alu0100108859 -s
+➜  gh-edu-browse git:(main) ✗ gh edu browse -S github-readme -r gonzalez  -s 
+3 repos match the query
+Tabs in your browser will be open in chunks of 20. 
+After you review each chunk go back to the terminal and press 'Q' to quit or any other key to continue
 ```
+
