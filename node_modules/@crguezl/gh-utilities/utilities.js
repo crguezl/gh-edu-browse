@@ -84,6 +84,14 @@ function getDefaultOrg() {
 }
 exports.getDefaultOrg = getDefaultOrg;
 
+function getEduDefaultOrg() {
+  let checkCommand = `gh edu get -o`;
+  let getResult = shell.exec(checkCommand, { silent: true });
+  let defaultOrg = getResult.stdout.replace(/\s+$/,'');
+  return defaultOrg;
+}
+exports.getEduDefaultOrg = getEduDefaultOrg;
+
 function setDefaultOrg(org) {
   let setCommand = `gh config set 'current-org' '${org}'`;
   let setResult = shell.exec(setCommand, { silent: true });

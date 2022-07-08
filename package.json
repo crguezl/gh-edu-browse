@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/crguezl/gh-edu-browse#readme",
   "dependencies": {
-    "@crguezl/gh-utilities": "^4.0.5",
+    "@crguezl/gh-utilities": "^4.1.0",
     "commander": "^8.3.0",
     "open": "^8.4.0",
     "prompt-sync": "^4.2.0",
